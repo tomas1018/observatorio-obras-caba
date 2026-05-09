@@ -14,13 +14,13 @@ El desarrollo busca proporcionar una visión integral sobre la inversión en inf
 
 \## Tecnologías y Herramientas
 
-\- Procesamiento y Visualización: Power BI
+\- \*\*Procesamiento y Visualización:\*\* Power BI
 
-\- Motor de Consultas: Power Query (Lenguaje M) para procesos ETL complejos
+\- \*\*Motor de Consultas:\*\* Power Query (Lenguaje M) para procesos ETL complejos
 
-\- Lógica de Negocio: Lenguaje DAX para el cálculo de KPIs y métricas de rendimiento
+\- \*\*Lógica de Negocio:\*\* Lenguaje DAX para el cálculo de KPIs y métricas de rendimiento
 
-\- Diseño de Interfaz: Assets personalizados para optimizar la experiencia del usuario (UX)
+\- \*\*Diseño de Interfaz:\*\* Assets personalizados para optimizar la experiencia del usuario (UX)
 
 
 
@@ -28,39 +28,61 @@ El desarrollo busca proporcionar una visión integral sobre la inversión en inf
 
 El flujo de trabajo se dividió en etapas críticas para garantizar la integridad de la información:
 
-\- Normalización de Datos: Limpieza profunda de inconsistencias en registros geográficos y tratamiento de valores nulos para asegurar la precisión de los reportes.
+\- \*\*Normalización de Datos:\*\* Limpieza profunda de inconsistencias en registros geográficos y tratamiento de valores nulos para asegurar la precisión de los reportes.
 
-\- Arquitectura de Datos: Implementación de un modelo relacional eficiente, con tablas de hechos y dimensiones vinculadas, y una estructura organizada para el mantenimiento de medidas DAX.
+\- \*\*Arquitectura de Datos:\*\* Implementación de un modelo relacional eficiente, con tablas de hechos y dimensiones vinculadas, y una estructura organizada para el mantenimiento de medidas DAX.
 
-\- Interfaz de Navegación: Sistema de paneles dinámicos que permiten filtrar la información por temporalidad, ubicación y magnitud de obra.
+\- \*\*Interfaz de Navegación:\*\* Sistema de paneles dinámicos que permiten filtrar la información por temporalidad, ubicación y magnitud de obra.
+
+
+
+\## ⌨️ Scripts y Lógica de Negocio
+
+El proyecto incluye una capa de desarrollo robusta documentada en archivos independientes para facilitar la auditoría y el mantenimiento:
+
+
+
+\- \*\*ETL (Power Query/M):\*\* Scripts de limpieza profunda que normalizan IDs de barrios, estandarizan categorías de tamaño de obra y gestionan la integridad de fechas.
+
+\- \*\*Modelado DAX:\*\* 
+
+&#x20;   - \*\*Métricas de Performance:\*\* Cálculo de promedios de inversión, plazos de ejecución y desviaciones.
+
+&#x20;   - \*\*Narrativa Inteligente:\*\* Implementación de conclusiones dinámicas mediante concatenación de variables que traducen datos complejos a lenguaje natural.
+
+&#x20;   - \*\*UI Dinámica:\*\* Uso de funciones `UNICHAR` y `SWITCH` para generar indicadores visuales (stickers de inversión) dentro de las tablas.
+
+\- \*\*Dimensión Temporal:\*\* Tabla de calendario generada por script DAX para habilitar funciones de Inteligencia de Tiempo (Time Intelligence).
 
 
 
 \## Indicadores y Dashboards
 
-\- Análisis Geográfico: Visualización de densidad de obras y distribución de inversión por comuna.
+\- \*\*Análisis Geográfico:\*\* Visualización de densidad de obras y distribución de inversión por comuna.
 
-\- Seguimiento de Objetivos: Panel de control para el monitoreo de metas anuales y cumplimiento de hitos.
+\- \*\*Seguimiento de Objetivos:\*\* Panel de control para el monitoreo de metas anuales y cumplimiento de hitos.
 
-\- Análisis de Inversión y Plazos: Desglose de costos por proyecto y métricas de duración promedio para evaluar la eficiencia operativa.
+\- \*\*Análisis de Inversión y Plazos:\*\* Desglose de costos por proyecto y métricas de duración promedio para evaluar la eficiencia operativa.
 
-\- Generación de Conclusiones: Implementación de lógica dinámica para la síntesis de hallazgos clave basada en los datos seleccionados.
+\- \*\*Generación de Conclusiones:\*\* Implementación de lógica dinámica para la síntesis de hallazgos clave basada en los datos seleccionados.
 
 
 
-\## Estructura del Repositorio
+\## 📁 Estructura del Repositorio
+
+\- \*\*\[/scripts](./scripts)\*\*: Directorio con los archivos `.m` (Power Query) y `.dax` (Medidas y Calendario) para revisión de código.
 
 \- \*\*\[Observatorio de Obras Urbanas en CABA.pbix](./Observatorio%20de%20Obras%20Urbanas%20en%20CABA.pbix)\*\*: Archivo central con el modelo de datos relacional y los tableros de control interactivos.
 
-\- \*\*\[Documentacion\_Tecnica\_Obras\_CABA.pdf.](./Carpeta Documentacion)\*\*: Informe integral que detalla la metodología técnica, el proceso de transformación (ETL), la arquitectura de las medidas DAX y los activos visuales desarrollados para la interfaz.
+\- \*\*\[/Carpeta Documentacion](./Carpeta%20Documentacion)\*\*: Informe integral que detalla la metodología técnica, el proceso de transformación (ETL), la arquitectura de las medidas DAX y los activos visuales desarrollados.
 
-\- \*\*\[Obras\_Urbanas\_Dataset](./Carpeta Datos)\*\*: Directorio que contiene los archivos fuente en formato Excel utilizados para la ingesta y el procesamiento de la información.
+\- \*\*\[/Carpeta Datos](./Carpeta%20Datos)\*\*: Directorio que contiene los archivos fuente en formato Excel utilizados para la ingesta y el procesamiento de la información.
 
 
 
 \---
 
-Tomas Hereñu
+\*\*Tomas Hereñu\*\*  
 
 Creador del proyecto.
 
