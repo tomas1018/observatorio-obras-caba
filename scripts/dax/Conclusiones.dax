@@ -1,0 +1,17 @@
+-- Resumen narrativo que concatena las métricas principales en un solo texto final
+Conclusiones = 
+VAR Texto1 = "El total del gasto invertido para obras en la ciudad es de "
+VAR Suma_gasto = FORMAT(SUM(OBRAS[Monto Contrato]), "$ #,###.00")
+VAR Texto2 = ". El promedio de gastado por cada obra ("
+VAR Cantidad_obras = COUNTROWS('OBRAS')
+VAR Texto3 = " obras totales) efectuadas por la municipalidad es de "
+VAR Promedio = FORMAT(AVERAGE(OBRAS[Monto Contrato]), "$ #,###.00")
+VAR Texto4 = ". El promedio de meses que se trabajo por cada obra es de "
+VAR Plazo_Meses_por_Obra = ROUND(AVERAGEX ( OBRAS, [Plazo Meses]), 0)
+VAR Texto5 = " La obra que mas tiempo tomo es de " 
+VAR Maximo_Plazo_Meses = MAX(OBRAS[Plazo Meses])
+VAR Texto9 = ", mientras que la que menos tomo fue de "
+VAR Minimo_Plazo_Meses = MIN(OBRAS[Plazo Meses])
+VAR Texto6A = "."
+RETURN
+Texto1 & Suma_gasto & Texto2 & Cantidad_obras & Texto3 & Promedio & Texto4 & Plazo_Meses_por_Obra & " meses" & Texto5 & Maximo_Plazo_Meses & " meses" & Texto9 & Minimo_Plazo_Meses & " meses" & Texto6A

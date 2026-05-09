@@ -1,0 +1,8 @@
+-- Generación de tabla base
+Calendario = CALENDARAUTO()
+
+-- Atributos de tiempo para filtros y ejes
+Año = YEAR(Calendario[Fecha])
+Número Mes = MONTH(Calendario[Fecha])
+Mes = FORMAT(calendario[Fecha], "mmmm")
+Trimestre = QUARTER(Calendario[Fecha]) & "º trimestre"

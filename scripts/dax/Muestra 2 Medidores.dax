@@ -1,0 +1,56 @@
+-- Calcula si se llegó al objetivo anual requerido de 100 obras
+Objetivo obras anual = 100
+
+-- Calcula el número de obras consideradas "obras chicas" (menos de 50 trabajadores)
+Obras Chicas = 
+VAR Obras_chicas = CALCULATE(COUNT(OBRAS[Tamaño de obra]), OBRAS[Tamaño de obra] = "Obra chica")
+RETURN
+Obras_chicas
+
+-- Devuelve el porcentaje de obras consideradas "Obras chicas"
+Porcentaje Obras Chicas = 
+VAR Obras_chicas = CALCULATE(COUNT(OBRAS[Tamaño de obra]), OBRAS[Tamaño de obra] = "Obra chica")
+VAR Total_Obras = COUNTROWS(OBRAS)
+RETURN
+DIVIDE(Obras_chicas, Total_Obras)
+
+-- Calcula el número de obras consideradas "obras grandes" (más de 50 trabajadores)
+Obras Grandes = 
+VAR Obras_grandes = CALCULATE(COUNT(OBRAS[Tamaño de obra]), OBRAS[Tamaño de obra] = "Obra grande")
+RETURN
+Obras_grandes
+
+-- Devuelve el porcentaje de obras consideradas “Obras grandes”
+Porcentaje Obras Grandes = 
+VAR Obras_grandes = CALCULATE(COUNT(OBRAS[Tamaño de obra]), OBRAS[Tamaño de obra] = "Obra grande")
+VAR Total_Obras = COUNTROWS(OBRAS)
+RETURN
+DIVIDE(Obras_grandes, Total_Obras)
+
+-- Calcula el número de obras de las cuales no se tienen datos de trabajadores
+trabajadores sin declarar = 
+VAR Obras_sin_Datos = CALCULATE(COUNT(OBRAS[Tamaño de obra]), OBRAS[Tamaño de obra] = "No exiten datos")
+RETURN
+Obras_sin_Datos
+
+-- Devuelve el porcentaje de obras sin datos de trabajadores declarados
+Porcentaje sin declarar trabajadores = 
+VAR Obras_sin_Datos = CALCULATE(COUNT(OBRAS[Tamaño de obra]), OBRAS[Tamaño de obra] = "No exiten datos")
+VAR Total_Obras = COUNTROWS(OBRAS)
+RETURN
+DIVIDE(Obras_sin_Datos, Total_Obras)
+
+-- Medida visual para mostrar iconos (stickers) según el monto del contrato en la matriz
+Cantidad obras = 
+VAR casa = UNICHAR(127968)
+VAR Total = SUM(OBRAS[Monto Contrato])
+RETURN
+IF(SELECTEDVALUE(calendario[Año]) IN VALUES(calendario[Año]),
+    SWITCH(TRUE(),
+       Total < 200000000, casa,
+       Total < 1000000000, REPT(casa, 2),
+       Total < 1500000000, REPT(casa, 3),
+       Total < 2000000000, REPT(casa, 4),
+       TRUE(), REPT(casa, 5),
+       BLANK())
+)

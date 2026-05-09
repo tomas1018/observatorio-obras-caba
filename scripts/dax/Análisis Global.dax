@@ -1,0 +1,8 @@
+-- Calcula el promedio de gasto por obra según el monto del contrato
+Promedio Monto Contrato = AVERAGE(OBRAS[Monto Contrato])
+
+-- Calcula el promedio en meses que dura una obra
+Promedio Plazo Meses por Obra = AVERAGEX(OBRAS, [Plazo Meses])
+
+-- Realiza la suma del gasto total invertido en obras
+Suma Monto Contrato = SUM(OBRAS[Monto Contrato])
