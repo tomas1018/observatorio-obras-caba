@@ -1,0 +1,5 @@
+# Forzar que los archivos .m se reconozcan como Power Query
+*.m linguist-language=PowerQuery
+
+# Forzar que los archivos .dax se reconozcan como DAX (o SQL, que tiene sintaxis parecida)
+*.dax linguist-language=SQL
